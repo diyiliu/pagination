@@ -1,0 +1,60 @@
+group 'com.diyiliu'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+ext {
+    springVersion = '4.2.1.RELEASE'
+    mybatisVersion = '3.3.0'
+    mybatisSpringVersion = '1.2.3'
+    mysqlVersion = '5.1.36'
+    druidVersion = '1.0.16'
+    commonsLangVersion = '2.6'
+    logbackVersion = '1.1.3'
+    aspectVersion = '1.8.7'
+    gsonVersion = '2.5'
+    servletApiVersion='3.1.0'
+    jspApiVersion='2.2'
+    jstlVersion = '1.2'
+
+    junitVersion = '4.12'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+
+    compile(
+            "org.springframework:spring-webmvc:$springVersion",
+            "org.springframework:spring-beans:$springVersion",
+            "org.springframework:spring-context:$springVersion",
+            "org.springframework:spring-context-support:$springVersion",
+            "org.springframework:spring-aop:$springVersion",
+            "org.springframework:spring-tx:$springVersion",
+            "org.springframework:spring-jdbc:$springVersion",
+            "org.mybatis:mybatis:$mybatisVersion",
+            "org.mybatis:mybatis-spring:$mybatisSpringVersion",
+            "mysql:mysql-connector-java:$mysqlVersion",
+            "com.alibaba:druid:$druidVersion",
+            "commons-lang:commons-lang:$commonsLangVersion",
+            "ch.qos.logback:logback-classic:$logbackVersion",
+            "org.aspectj:aspectjweaver:$aspectVersion",
+            "com.google.code.gson:gson:$gsonVersion",
+            // servlet 包
+            "javax.servlet:javax.servlet-api:$servletApiVersion",
+            "javax.servlet.jsp:jsp-api:$jspApiVersion",
+            "javax.servlet:jstl:$jstlVersion",
+    )
+
+    testCompile(
+            "junit:junit:$junitVersion",
+            "org.springframework:spring-test:$springVersion",
+    )
+}
